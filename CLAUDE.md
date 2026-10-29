@@ -3,8 +3,11 @@
 Application de gestion de tournois de beer pong (« pong » / cups), pour le web, iOS et Android.
 Le MVP fonctionne **entièrement hors ligne, sans compte ni serveur** : un téléphone gère tout le tournoi.
 
-- Spec des fonctionnalités (MVP / V2) : https://claude.ai/artifact/GLumtjPCE2n9uEEM9AK3eg
-- Maquette (mode nuit + mode clair) : https://claude.ai/artifact/UBeXW8uTmeupA7ace9FadR
+- Dépôt : https://github.com/nicolas1607/beer_pong_cup (branches `main` et `dev`)
+- Maquette des écrans (clair + nuit) : `docs/maquette/` — lire d'abord `docs/maquette/README.md`
+- Pour l'humain uniquement (pages privées, inaccessibles à Claude Code ; leur contenu utile est repris ici) :
+  spec MVP / V2 https://claude.ai/artifact/GLumtjPCE2n9uEEM9AK3eg ·
+  maquette https://claude.ai/artifact/Nwbw9KDraxZrtc99v62KoC
 - Ancienne version Vue 2022, à ne PAS reprendre telle quelle (référence métier uniquement) : https://github.com/nicolas1607/beer_pong_cup_vue
 
 ## Stack
@@ -37,6 +40,8 @@ Avant chaque commit : `npm run lint`, `npm run test:unit -- --run`, `npm run bui
 - Une branche par fonctionnalité, créée depuis `dev` : `feat/<nom>`, `fix/<nom>`, `chore/<nom>`. Pull request vers `dev`.
 - Messages de commit en français, courts, à l'impératif, préfixés : `feat:`, `fix:`, `test:`, `refactor:`, `chore:`, `docs:`.
 - Ne jamais `git push --force` sur `main` ou `dev`.
+- **Commit, push, merge et ouverture de PR : uniquement sur demande explicite.** Proposer le message de commit, ne pas l'exécuter.
+- Travailler sur une branche `feat/*` dédiée vaut copie de travail : on peut y modifier les fichiers demandés. Ne jamais modifier directement `main` ou `dev`.
 
 ## Architecture
 
@@ -105,8 +110,25 @@ Détails :
 
 Bonus & malus, matchs aller-retour, double élimination, barrages / repêchage, petite finale, sablier, plusieurs tables en parallèle, QR code / multi-appareils, comptes, synchronisation en ligne, statistiques et trophées, partage en image, pubs et achats in-app, traduction anglaise.
 
+## Outils IA
+
+- **graphify** : voir la section « graphify » en bas de ce fichier. Le graphe est reconstruit par les hooks Git à chaque commit et changement de branche ; lancer `graphify update .` après des modifications non commitées.
+- **ponytail** (mode `full`) : viser le code le plus simple, mais ne jamais réduire ni supprimer :
+  les tests de `src/domain/` (dont 2, 10 et 32 équipes), la validation des saisies, la sauvegarde / reprise du tournoi, l'accessibilité.
+
 ## Façon de travailler
 
 - Commencer par la logique `src/domain/` avec ses tests, puis les stores, puis les écrans.
 - Petites étapes : une fonctionnalité par branche, testée avant d'ouvrir la PR.
 - En cas de doute sur une règle métier, demander plutôt que deviner.
+
+## graphify
+
+This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+
+Rules:
+- When graphify-out/graph.json exists, run `graphify query "<question>"` before your first grep, search or source-file read for a codebase question, and put this rule in every subagent prompt that explores code. Read raw files only for lines the graph or an earlier read already located. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
+- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
+- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+- A committed graphify-out/graph.json is rewritten whole on every build, so a large diff to it in a pull request is expected. Do not flag it as churn or suggest skipping the graph rebuild or its hooks.
