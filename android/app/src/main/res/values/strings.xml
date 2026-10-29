@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Beer Pong Cup</string>
+    <string name="title_activity_main">Beer Pong Cup</string>
+    <string name="package_name">com.nmdatasolutions.beerpongcup</string>
+    <string name="custom_url_scheme">com.nmdatasolutions.beerpongcup</string>
+</resources>
