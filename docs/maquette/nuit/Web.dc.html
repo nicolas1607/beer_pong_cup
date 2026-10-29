@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Tournoi web — nuit</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#161A17}
+a{color:#9DBBA3}a:hover{color:#B9D1BE}
+th,td{padding:0}
+</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; background: #161A17; color: #ECE9E1; font-family: Inter, system-ui, sans-serif">
+  <header style="border-bottom: 1px solid #2B312D">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 18px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 40px">
+      <img src="../assets/logo-sauge-clair.png" alt="Beer Pong Cup" style="height: 36px; width: auto">
+      <nav aria-label="Navigation principale" style="display: flex; flex-wrap: wrap; gap: 28px; flex-grow: 1">
+        <a href="Accueil.dc.html" style="min-height: 44px; display: flex; align-items: center; color: #A3ABA5; font-size: 15px; text-decoration: none">Accueil</a>
+        <a href="Web.dc.html" aria-current="page" style="min-height: 44px; display: flex; align-items: center; color: #ECE9E1; font-size: 15px; font-weight: 600; text-decoration: none; box-shadow: inset 0 -2px 0 {{accent}}">Tournoi</a>
+        <a href="#regles" style="min-height: 44px; display: flex; align-items: center; color: #A3ABA5; font-size: 15px; text-decoration: none">Règles</a>
+        <a href="#reglages" style="min-height: 44px; display: flex; align-items: center; color: #A3ABA5; font-size: 15px; text-decoration: none">Réglages</a>
+      </nav>
+      <a href="Mode.dc.html" style="display: inline-flex; align-items: center; height: 44px; padding: 0 22px; border-radius: 999px; background: {{accent}}; color: #142019; font-size: 15px; font-weight: 600; text-decoration: none">Nouveau tournoi</a>
+    </div>
+  </header>
+
+  <main style="max-width: 1240px; margin: 0 auto; padding: 48px 32px 64px; display: flex; flex-direction: column; gap: 40px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 32px">
+      <div>
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: {{accent}}">Poule · match 4 sur 15</span>
+        <h1 style="margin: 10px 0 0; font-family: Fraunces, Georgia, serif; font-weight: 300; font-size: 48px; line-height: 1.05">Soirée du samedi</h1>
+      </div>
+      <span style="font-size: 14px; color: #A3ABA5">6 équipes · 6 verres · les 4 premiers en phase finale</span>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+      <section aria-label="Match en cours" style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 32px">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); border-top: 1px solid #2B312D; border-bottom: 1px solid #2B312D">
+          <div style="padding: 32px 32px 32px 0; display: flex; flex-direction: column; gap: 10px">
+            <h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 32px">Les Chauds</h2>
+            <span style="font-size: 14px; color: #A3ABA5">Nico, Léa</span>
+            <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-top: 18px">
+              <span style="font-family: Fraunces, Georgia, serif; font-weight: 300; font-size: 112px; line-height: 0.85; color: {{accent}}">6</span>
+              <div style="display: flex; gap: 10px">
+                <button type="button" aria-label="Retirer un verre aux Chauds" style="width: 48px; height: 48px; border-radius: 24px; border: 1px solid #3A413C; background: transparent; color: #ECE9E1; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <button type="button" aria-label="Ajouter un verre aux Chauds" style="width: 48px; height: 48px; border-radius: 24px; border: 1px solid #3A413C; background: transparent; color: #ECE9E1; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 32px 0 32px 32px; border-left: 1px solid #2B312D; display: flex; flex-direction: column; gap: 10px">
+            <h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 32px">Team Pong</h2>
+            <span style="font-size: 14px; color: #A3ABA5">Max, Inès</span>
+            <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-top: 18px">
+              <span style="font-family: Fraunces, Georgia, serif; font-weight: 300; font-size: 112px; line-height: 0.85; color: #E08E6D">2</span>
+              <div style="display: flex; gap: 10px">
+                <button type="button" aria-label="Retirer un verre à Team Pong" style="width: 48px; height: 48px; border-radius: 24px; border: 1px solid #3A413C; background: transparent; color: #ECE9E1; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <button type="button" aria-label="Ajouter un verre à Team Pong" style="width: 48px; height: 48px; border-radius: 24px; border: 1px solid #3A413C; background: transparent; color: #ECE9E1; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px">
+          <a href="#valider" style="display: inline-flex; align-items: center; height: 52px; padding: 0 32px; border-radius: 999px; background: {{accent}}; color: #142019; font-size: 16px; font-weight: 600; text-decoration: none">Valider 6 – 2</a>
+          <button type="button" style="min-height: 44px; padding: 0; border: 0; background: transparent; color: #ECE9E1; font: 500 14px Inter, system-ui, sans-serif">Choisir le match</button>
+          <button type="button" style="min-height: 44px; padding: 0; border: 0; background: transparent; color: #ECE9E1; font: 500 14px Inter, system-ui, sans-serif">Au hasard</button>
+          <button type="button" style="min-height: 44px; padding: 0; border: 0; background: transparent; color: #ECE9E1; font: 500 14px Inter, system-ui, sans-serif">Annuler le dernier</button>
+        </div>
+
+        <div>
+          <h3 style="margin: 0 0 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #A3ABA5">À suivre</h3>
+          <ol style="margin: 0; padding: 0; list-style: none">
+            <li style="min-height: 48px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2B312D; font-size: 15px"><span>Les Gobelets <em style="font-family: Fraunces, Georgia, serif; color: #A3ABA5">contre</em> Coup Franc</span><span style="color: #A3ABA5">Match 5</span></li>
+            <li style="min-height: 48px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2B312D; font-size: 15px"><span>Les Rebonds <em style="font-family: Fraunces, Georgia, serif; color: #A3ABA5">contre</em> Balle Perdue</span><span style="color: #A3ABA5">Match 6</span></li>
+            <li style="min-height: 48px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2B312D; font-size: 15px"><span>Team Pong <em style="font-family: Fraunces, Georgia, serif; color: #A3ABA5">contre</em> Les Gobelets</span><span style="color: #A3ABA5">Match 7</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <aside aria-label="Classement" style="flex: 1 1 340px; min-width: 0">
+        <h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 300; font-size: 30px">Classement</h2>
+        <div style="overflow-x: auto; margin-top: 12px">
+          <table style="width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums">
+            <thead>
+              <tr style="height: 40px; color: #A3ABA5; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">
+                <th scope="col" style="width: 36px; text-align: left; font-weight: 600">#</th>
+                <th scope="col" style="text-align: left; font-weight: 600">Équipe</th>
+                <th scope="col" style="width: 56px; text-align: right; font-weight: 600">V–D</th>
+                <th scope="col" style="width: 52px; text-align: right; font-weight: 600">Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+                <tr style="height: 52px; border-top: 1px solid #2B312D; color: {{r.color}}">
+                  <td style="font-family: Fraunces, Georgia, serif; font-size: 19px; color: {{r.rankColor}}">{{r.rank}}</td>
+                  <td style="font-weight: 500">{{r.name}}</td>
+                  <td style="text-align: right; color: #A3ABA5">{{r.vd}}</td>
+                  <td style="text-align: right; font-family: Fraunces, Georgia, serif; font-size: 21px">{{r.pts}}</td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin: 14px 0 0; display: flex; align-items: center; gap: 10px; font-size: 12px; color: #A3ABA5">
+          <span aria-hidden="true" style="width: 18px; border-top: 1px dashed {{accent}}"></span>
+          Les 4 premiers passent en phase finale
+        </p>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DBBA3","options":["#9DBBA3","#8CC2C7","#D2B48C","#B7A9DB"]},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const accent = this.props.accent ?? '#9DBBA3';
+    const data = [['Les Chauds', '1–0', 4], ['Les Gobelets', '1–0', 3], ['Team Pong', '1–1', 2], ['Les Rebonds', '1–0', 1], ['Coup Franc', '0–1', 0], ['Balle Perdue', '0–2', 0]];
+    const rows = data.map((d, i) => ({ rank: i + 1, name: d[0], vd: d[1], pts: d[2], rankColor: i < 4 ? accent : '#A3ABA5', color: i < 4 ? '#ECE9E1' : '#A3ABA5' }));
+    return { accent, rows };
+  }
+}
+</script>
+</body>
+</html>

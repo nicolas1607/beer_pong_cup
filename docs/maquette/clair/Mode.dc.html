@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mode et règles — clair</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F4EF}
+a{color:#4E6B55}a:hover{color:#3B5442}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F6F4EF; color: #23302A; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; padding: 48px 28px 28px; overflow: hidden">
+  <header style="display: flex; align-items: center; justify-content: space-between">
+    <a href="Accueil.dc.html" aria-label="Retour" style="width: 44px; height: 44px; margin-left: -12px; display: flex; align-items: center; justify-content: center; color: #23302A">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </a>
+    <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: {{accent}}">Étape 1 sur 2</span>
+    <span style="width: 32px"></span>
+  </header>
+
+  <h1 style="margin: 20px 0 0; font-family: Fraunces, Georgia, serif; font-weight: 300; font-size: 36px; line-height: 1.1">Nouveau tournoi</h1>
+
+  <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 4px">
+    <label for="nom" style="font-size: 12px; font-weight: 500; color: #5E6862">Nom du tournoi</label>
+    <input id="nom" value="Soirée du samedi" style="height: 40px; border: 0; border-bottom: 1px solid #23302A; background: transparent; color: #23302A; padding: 0; font: 400 18px Fraunces, Georgia, serif">
+  </div>
+
+  <fieldset style="margin: 24px 0 0; padding: 0; border: 0">
+    <legend style="padding: 0; margin-bottom: 4px; font-size: 12px; font-weight: 500; color: #5E6862">Mode de jeu</legend>
+    <sc-for list="{{modes}}" as="m" hint-placeholder-count="4">
+      <label style="min-height: 54px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid #E3E0D8">
+        <input type="radio" name="mode" checked="{{m.checked}}" aria-label="{{m.title}}" style="width: 18px; height: 18px; margin: 0; accent-color: {{accent}}">
+        <span style="display: flex; flex-direction: column; gap: 2px">
+          <span style="font-size: 15px; font-weight: 500">{{m.title}}</span>
+          <span style="font-size: 12px; color: #5E6862">{{m.desc}}</span>
+        </span>
+      </label>
+    </sc-for>
+  </fieldset>
+
+  <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 8px">
+    <span style="font-size: 12px; font-weight: 500; color: #5E6862">Qualifiés pour la phase finale</span>
+    <div role="group" aria-label="Qualifiés" style="display: flex; gap: 8px">
+      <button type="button" aria-pressed="false" style="height: 40px; padding: 0 18px; border-radius: 999px; border: 1px solid #D6D2C8; background: transparent; color: #23302A; font: 500 14px Inter, system-ui, sans-serif">Top 2</button>
+      <button type="button" aria-pressed="true" style="height: 40px; padding: 0 18px; border-radius: 999px; border: 1px solid {{accent}}; background: {{accent}}; color: #FFFFFF; font: 600 14px Inter, system-ui, sans-serif">Top 4</button>
+      <button type="button" aria-pressed="false" style="height: 40px; padding: 0 18px; border-radius: 999px; border: 1px solid #D6D2C8; background: transparent; color: #23302A; font: 500 14px Inter, system-ui, sans-serif">Top 8</button>
+    </div>
+  </div>
+
+  <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 8px">
+    <span style="font-size: 12px; font-weight: 500; color: #5E6862">Verres par équipe</span>
+    <div role="group" aria-label="Verres par équipe" style="display: flex; gap: 8px">
+      <button type="button" aria-pressed="false" style="width: 52px; height: 40px; border-radius: 999px; border: 1px solid #D6D2C8; background: transparent; color: #23302A; font: 500 14px Inter, system-ui, sans-serif">3</button>
+      <button type="button" aria-pressed="true" style="width: 52px; height: 40px; border-radius: 999px; border: 1px solid {{accent}}; background: {{accent}}; color: #FFFFFF; font: 600 14px Inter, system-ui, sans-serif">6</button>
+      <button type="button" aria-pressed="false" style="width: 52px; height: 40px; border-radius: 999px; border: 1px solid #D6D2C8; background: transparent; color: #23302A; font: 500 14px Inter, system-ui, sans-serif">10</button>
+      <button type="button" aria-pressed="false" style="width: 52px; height: 40px; border-radius: 999px; border: 1px solid #D6D2C8; background: transparent; color: #23302A; font: 500 14px Inter, system-ui, sans-serif">15</button>
+    </div>
+  </div>
+
+  <div style="margin-top: 16px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <label for="victoire" style="font-size: 12px; font-weight: 500; color: #5E6862">Points par victoire</label>
+      <select id="victoire" style="height: 40px; border: 0; border-bottom: 1px solid #23302A; background: transparent; color: #23302A; padding: 0; font: 400 15px Inter, system-ui, sans-serif">
+        <option selected>Écart de verres</option>
+        <option>1 point</option>
+        <option>3 points</option>
+        <option>5 points</option>
+      </select>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <label for="defaite" style="font-size: 12px; font-weight: 500; color: #5E6862">Points par défaite</label>
+      <select id="defaite" style="height: 40px; border: 0; border-bottom: 1px solid #23302A; background: transparent; color: #23302A; padding: 0; font: 400 15px Inter, system-ui, sans-serif">
+        <option>-2</option>
+        <option>-1</option>
+        <option selected>0</option>
+        <option>1</option>
+      </select>
+    </div>
+  </div>
+
+  <a href="Equipes.dc.html" style="margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 8px; height: 54px; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none">
+    Suivant : les équipes
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#4E6B55","options":["#4E6B55","#2F5D62","#7A5C3E","#5A4E7A"]},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#4E6B55',
+      modes: [
+        { title: 'Match simple', desc: 'Un seul match, sans tournoi', checked: false },
+        { title: 'Poule', desc: 'Tout le monde se rencontre une fois', checked: false },
+        { title: 'Élimination directe', desc: 'Une défaite et c’est fini', checked: false },
+        { title: 'Poule & phase finale', desc: 'Les meilleurs passent en élimination', checked: true }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Classement de poule — clair</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F4EF}
+a{color:#4E6B55}a:hover{color:#3B5442}
+th,td{padding:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F6F4EF; color: #23302A; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
+  <main style="flex-grow: 1; display: flex; flex-direction: column; padding: 60px 28px 24px">
+    <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: {{accent}}">Soirée du samedi</span>
+    <h1 style="margin: 8px 0 0; font-family: Fraunces, Georgia, serif; font-weight: 300; font-size: 40px; line-height: 1.1">Classement</h1>
+    <p style="margin: 6px 0 0; font-size: 14px; color: #5E6862">Poule · 4 matchs joués sur 15</p>
+
+    <div role="tablist" aria-label="Vue" style="margin-top: 28px; display: flex; gap: 24px; border-bottom: 1px solid #E3E0D8">
+      <button type="button" role="tab" aria-selected="true" style="height: 44px; padding: 0; border: 0; border-bottom: 2px solid {{accent}}; margin-bottom: -1px; background: transparent; color: #23302A; font: 600 14px Inter, system-ui, sans-serif">Classement</button>
+      <button type="button" role="tab" aria-selected="false" style="height: 44px; padding: 0; border: 0; background: transparent; color: #5E6862; font: 500 14px Inter, system-ui, sans-serif">Matchs</button>
+    </div>
+
+    <table style="margin-top: 8px; width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums">
+      <thead>
+        <tr style="height: 40px; color: #5E6862; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">
+          <th scope="col" style="width: 36px; text-align: left; font-weight: 600">#</th>
+          <th scope="col" style="text-align: left; font-weight: 600">Équipe</th>
+          <th scope="col" style="width: 56px; text-align: right; font-weight: 600"><abbr title="Victoires – défaites" style="text-decoration: none">V–D</abbr></th>
+          <th scope="col" style="width: 48px; text-align: right; font-weight: 600"><abbr title="Différence de verres" style="text-decoration: none">+/-</abbr></th>
+          <th scope="col" style="width: 48px; text-align: right; font-weight: 600">Pts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <sc-for list="{{qualified}}" as="r" hint-placeholder-count="4">
+          <tr style="height: 56px; border-top: 1px solid #E3E0D8">
+            <td style="font-family: Fraunces, Georgia, serif; font-size: 20px; color: {{accent}}">{{r.rank}}</td>
+            <td style="font-weight: 500">{{r.name}}</td>
+            <td style="text-align: right; color: #5E6862">{{r.vd}}</td>
+            <td style="text-align: right; color: #5E6862">{{r.diff}}</td>
+            <td style="text-align: right; font-family: Fraunces, Georgia, serif; font-size: 22px">{{r.pts}}</td>
+          </tr>
+        </sc-for>
+        <tr>
+          <td colspan="5" style="padding: 10px 0">
+            <div style="display: flex; align-items: center; gap: 10px">
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: {{accent}}; white-space: nowrap">Phase finale</span>
+              <span aria-hidden="true" style="flex-grow: 1; border-top: 1px dashed {{accent}}"></span>
+            </div>
+          </td>
+        </tr>
+        <sc-for list="{{others}}" as="r" hint-placeholder-count="2">
+          <tr style="height: 56px; border-top: 1px solid #E3E0D8; color: #5E6862">
+            <td style="font-family: Fraunces, Georgia, serif; font-size: 20px">{{r.rank}}</td>
+            <td style="font-weight: 500">{{r.name}}</td>
+            <td style="text-align: right">{{r.vd}}</td>
+            <td style="text-align: right">{{r.diff}}</td>
+            <td style="text-align: right; font-family: Fraunces, Georgia, serif; font-size: 22px">{{r.pts}}</td>
+          </tr>
+        </sc-for>
+      </tbody>
+    </table>
+
+    <a href="Match.dc.html" style="margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 8px; height: 54px; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none">
+      Match suivant
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+    </a>
+  </main>
+
+  <nav aria-label="Navigation principale" style="height: 72px; flex-shrink: 0; border-top: 1px solid #E3E0D8; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0 12px 8px">
+    <a href="Accueil.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; color: #5E6862; font-size: 11px; font-weight: 500; text-decoration: none">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path></svg>
+      Accueil
+    </a>
+    <a href="Classement.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; color: {{accent}}; font-size: 11px; font-weight: 600; text-decoration: none">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"></path><path d="M7 6H4v1a3 3 0 0 0 3 3"></path><path d="M17 6h3v1a3 3 0 0 1-3 3"></path><path d="M12 14v4"></path><path d="M8 21h8"></path></svg>
+      Tournoi
+    </a>
+    <a href="#regles" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; color: #5E6862; font-size: 11px; font-weight: 500; text-decoration: none">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"></path><path d="M4 19a2 2 0 0 1 2-2h13"></path></svg>
+      Règles
+    </a>
+    <a href="#reglages" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; color: #5E6862; font-size: 11px; font-weight: 500; text-decoration: none">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="17" x2="20" y2="17"></line><circle cx="9" cy="7" r="2.2" fill="#F6F4EF"></circle><circle cx="15" cy="17" r="2.2" fill="#F6F4EF"></circle></svg>
+      Réglages
+    </a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#4E6B55","options":["#4E6B55","#2F5D62","#7A5C3E","#5A4E7A"]},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const data = [
+      ['Les Chauds', '1–0', '+4', 4],
+      ['Les Gobelets', '1–0', '+3', 3],
+      ['Team Pong', '1–1', '−2', 2],
+      ['Les Rebonds', '1–0', '+1', 1],
+      ['Coup Franc', '0–1', '−1', 0],
+      ['Balle Perdue', '0–2', '−5', 0]
+    ];
+    const rows = data.map((d, i) => ({ rank: i + 1, name: d[0], vd: d[1], diff: d[2], pts: d[3] }));
+    return { accent: this.props.accent ?? '#4E6B55', qualified: rows.slice(0, 4), others: rows.slice(4) };
+  }
+}
+</script>
+</body>
+</html>
