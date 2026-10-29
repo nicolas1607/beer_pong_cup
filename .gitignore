@@ -37,3 +37,9 @@ __screenshots__/
 
 # Vite
 *.timestamp-*-*.mjs
+
+# graphify (reconstruit localement par les hooks)
+graphify-out/
+
+# réglages personnels Claude Code
+.claude/settings.local.json
